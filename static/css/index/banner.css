@@ -1,0 +1,66 @@
+/*배네 css*/
+a {
+	z-index: 50;
+}
+.container{
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+}
+.container img{
+	width: 100%;
+	height: 100%;
+}
+.container ul,li{
+	list-style:none;
+}
+.container li{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	opacity: 0;
+	transition: 1s;
+	text-align: center;
+}
+.container li:nth-child(1){background: #d7e2e8;}
+.container li:nth-child(2){background: #bac0cc;}
+.container li:nth-child(3){background: #e2dedd;}
+.container li:nth-child(4){background: #c4c3be;}
+.container input{
+	display: none;
+}
+.container .select{
+	position: absolute;
+	bottom: 30px;
+	left: 0;
+	right: 0;
+	text-align: center;
+	z-index: 10;
+}
+.container .select label{
+	width: 60px;
+	height: 18px;
+	margin-bottom: -30px;
+	border-radius: 10px;
+	border: 2px solid #777;
+	display: inline-block;
+	background: #fff;
+	font-size: 0;
+	transition: 0.5s;
+	cursor: pointer;
+}
+#select1:checked ~ ul li:nth-child(1),
+#select2:checked ~ ul li:nth-child(2),
+#select3:checked ~ ul li:nth-child(3){
+	opacity: 1;
+}
+#select1:checked ~ .select label:nth-child(1),
+#select2:checked ~ .select label:nth-child(2),
+#select3:checked ~ .select label:nth-child(3){
+	background: #777;
+}

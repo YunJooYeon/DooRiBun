@@ -1,0 +1,221 @@
+{% extends "users/user_base.html" %}
+{% load static %}
+
+{% block mobileView %}
+<meta name="viewport" content="width=570, user-scalable=yes">
+{% endblock %}
+
+{% block contents %}
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div style="position: absolute; top: 50%; height: 876.39px; margin-top: -389.49px;">
+            <div class="card" style="width: 40rem;">
+                <div class="card-body">
+                    <div class="text-center">
+                        <a href="{% url 'users:index' %}">
+                        <img src="{% static 'img/logo2.png' %}" style="width: 30%; margin-top:10px; margin-bottom: -30px;">
+                        </a>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-12">
+                            <form action="" id="signup" method="POST" novalidate>
+                                {% csrf_token %}
+
+                                <!--아이디-->
+                                <div class="mb-4 md-form">
+                                    <label name="label_user_id" for="{{ form.user_id.id_for_label }}"><i
+                                            class="fas fa-user"></i>&nbsp;&nbsp;ID</label>
+                                    {{ form.user_id }}
+                                    <script type="text/javascript">
+                                        if (document.getElementsByName('user_id')[0].value != '') {
+                                            document.getElementsByName('label_user_id')[0].setAttribute('class',
+                                                'active');
+                                        }
+                                    </script>
+                                    {% if form.user_id.errors %}
+                                    <script type="text/javascript">
+                                        document.getElementsByName('user_id')[0].setAttribute('class',
+                                            'form-control is-invalid')
+                                    </script>
+                                    {% for error in form.user_id.errors %}
+                                    <div class="invalid-feedback">
+                                        {{ error }}
+                                    </div>
+                                    {% endfor %}
+                                    {% endif %}
+                                    <small class="form-text text-muted">
+                                        Please enter the ID to be used when logging in.
+                                    </small>
+                                </div>
+                                <!--비밀번호-->
+                                <div class="form-row">
+                                    <div class="col-md-6" style="margin-top:-25px; margin-bottom: -25px;">
+                                        <div class="mb-4 md-form">
+                                            <label name="label_password2" for="{{ form.password2.id_for_label }}"><i
+                                                    class="fas fa-unlock"></i>&nbsp;&nbsp;Password</label>
+                                            {{ form.password2 }}
+                                            <script type="text/javascript">
+                                                if (document.getElementsByName('password2')[0].value != '') {
+                                                    document.getElementsByName('label_password2')[0].setAttribute('class', 'active');
+                                                }
+                                            </script>
+                                            {% if form.password2.errors %}
+                                            <script type="text/javascript">
+                                                document.getElementsByName('password2')[0].setAttribute('class',
+                                                    'form-control is-invalid')
+                                            </script>
+                                            {% for error in form.password2.errors %}
+                                            <div style="white-space: nowrap;" class="invalid-feedback">
+                                                {{ error }}
+                                            </div>
+                                            {% endfor %}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    <!--비밀번호확인-->
+                                    <div class="col-md-6" style="margin-top:-25px; margin-bottom: -25px;">
+                                        <div class="mb-4 md-form">
+                                            <label name="label_password1" for="{{ form.password1.id_for_label }}"><i
+                                                    class="fas fa-unlock-alt"></i>&nbsp;&nbsp;Confirm password</label>
+                                            {{ form.password1 }}
+                                            <script type="text/javascript">
+                                                if (document.getElementsByName('password1')[0].value != '') {
+                                                    document.getElementsByName('label_password1')[0].setAttribute('class','active');
+                                                }
+                                            </script>
+                                            {% if form.password1.errors %}
+                                            <script type="text/javascript">
+                                                document.getElementsByName('password1')[0].setAttribute('class',
+                                                    'form-control is-invalid')
+                                            </script>
+                                            {% for error in form.password1.errors %}
+                                            <div class="invalid-feedback">
+                                                {{ error }}
+                                            </div>
+                                            {% endfor %}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    <small style="margin-left: 4px; margin-top:8px;" class="form-text text-muted">
+                                        Please enter at least 8 numbers and letters or special symbols. Routine passwords are not available.
+                                    </small>
+                                </div>
+                                <!--이메일-->
+                                <div class="mb-4 md-form">
+                                    <label name="label_email" for="{{ form.email.id_for_label }}"><i
+                                            class="fas fa-envelope"></i>&nbsp;&nbsp;Email</label>
+                                    {{ form.email }}
+                                    <script type="text/javascript">
+                                        if (document.getElementsByName('email')[0].value != '') {
+                                            document.getElementsByName('label_email')[0].setAttribute('class',
+                                                'active');
+                                        }
+                                    </script>
+                                    {% if form.email.errors %}
+                                    <script type="text/javascript">
+                                        document.getElementsByName('email')[0].setAttribute('class',
+                                            'form-control is-invalid')
+                                    </script>
+                                    {% for error in form.email.errors %}
+                                    <div class="invalid-feedback">
+                                        {{ error }}
+                                    </div>
+                                    {% endfor %}
+                                    {% endif %}
+                                    <small class="form-text text-muted">
+                                        After signing up as a member, an authentication email will be sent to the email address you entered.
+                                    </small>
+                                </div>
+                                <!--이름-->
+                                <div class="mb-4 md-form">
+                                    <label name="label_name" for="{{ form.name.id_for_label }}"><i
+                                            class="fas fa-user-edit"></i>&nbsp;&nbsp;Name</label>
+                                    {{ form.name }}
+                                    <script type="text/javascript">
+                                        if (document.getElementsByName('name')[0].value != '') {
+                                            document.getElementsByName('label_name')[0].setAttribute('class', 'active');
+                                        }
+                                    </script>
+                                    {% if form.name.errors %}
+                                    <script type="text/javascript">
+                                        document.getElementsByName('name')[0].setAttribute('class',
+                                            'form-control is-invalid')
+                                    </script>
+                                    {% for error in form.name.errors %}
+                                    <div class="invalid-feedback">
+                                        {{ error }}
+                                    </div>
+                                    {% endfor %}
+                                    {% endif %}
+                                    <small class="form-text text-muted">
+                                        Used to find ID and passwords.
+                                    </small>
+                                </div>
+                                <!--휴대폰번호-->
+                                <div class="mb-4 md-form">
+                                    <label name="label_hp" for="{{ form.hp.id_for_label }}"><i
+                                            class="fas fa-phone"></i>&nbsp;&nbsp;H.P</label>
+                                    {{ form.hp }}
+                                    <script type="text/javascript">
+                                        if (document.getElementsByName('hp')[0].value != '') {
+                                            document.getElementsByName('label_hp')[0].setAttribute('class', 'active');
+                                        }
+                                    </script>
+                                    {% if form.hp.errors %}
+                                    <script type="text/javascript">
+                                        document.getElementsByName('hp')[0].setAttribute('class',
+                                            'form-control is-invalid')
+                                    </script>
+                                    {% for error in form.hp.errors %}
+                                    <div class="invalid-feedback">
+                                        {{ error }}
+                                    </div>
+                                    {% endfor %}
+                                    {% endif %}
+                                    <small class="form-text text-muted">
+                                        Please enter a number excluding the hyphen(-).
+                                    </small>
+                                </div>
+                                <!--국적-->
+                                <div class="form-row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label style="color:gray;" name="label_grade"
+                                                for="{{ form.grade.id_for_label }}"><i
+                                                    class="fas fa-address-card"></i>&nbsp;&nbsp;Nationality</label>
+                                            {{ form.grade }}
+                                            <script type="text/javascript">
+                                                document.getElementsByTagName('option')[1].remove();
+                                            </script>
+                                            {% if form.grade.errors %}
+                                            <script type="text/javascript">
+                                                document.getElementsByName('grade')[0].setAttribute('class',
+                                                    'form-control is-invalid')
+                                            </script>
+                                            {% for error in form.grade.errors %}
+                                            <div class="invalid-feedback">
+                                                {{ error }}
+                                            </div>
+                                            {% endfor %}
+                                            {% endif %}
+                                        </div>
+                                        <small style="margin-left: 5px; margin-top:-10px;" class="form-text text-muted">
+                                            Please select your nationality.
+                                        </small>
+                                    </div>
+                                </div>
+
+                                <br>
+                                <button type="submit" style="opacity: 90%; font-size: 16px; margin-top: -5px;"
+                                    class="btn btn-red btn-md btn-block">Sign Up</button>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
