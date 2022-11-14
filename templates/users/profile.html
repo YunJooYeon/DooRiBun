@@ -53,6 +53,92 @@
                         </div>
                     </div>
                 </div>
+
+
+            <div class="card" style="margin-top: 30px;">
+                    <div class="card-header" style="padding-bottom:8px;">
+                        <strong style="font-size: 18px;"><i class="fas fa-user-cog"></i>&nbsp;&nbsp;예매 확인</strong>
+                    </div>
+                    <div class="card-body">
+                        <table style="color:black; margin-left:10px;">
+                            <tr>
+                                <td class="profile_title">상품명</td>
+                                <td class="profile_content">경복궁(Gyeongbokgung Palace)</td>
+                            </tr>
+                            <tr>
+                                <td class="profile_title">일시</td>
+                                <td class="profile_content">2022넌 11월 26일</td>
+                            </tr>
+                            <tr>
+                                <td class="profile_title">아이디</td>
+                                {% if user.level == '0'%}
+                                <td class="profile_content">{{ user.user_id }}&nbsp;&nbsp;(개발자)</td>
+                                {% elif user.level == '1' %}
+                                <td class="profile_content">{{ user.user_id }}&nbsp;&nbsp;(관리자)</td>
+                                {% else %}
+                                <td class="profile_content">{{ user.user_id }}</td>
+                                {% endif %}
+                            </tr>
+                            <tr>
+                                <td class="profile_title">이메일</td>
+                                <td class="profile_content">{{ user.email }}</td>
+                            </tr>
+                            <tr>
+                                <td class="profile_title">이름</td>
+                                <td class="profile_content">{{ user.name }}</td>
+                            </tr>
+                            <tr>
+                                <td class="profile_title">연락처</td>
+                                <td class="profile_content">0{{ user.hp }}</td>
+                            </tr>
+                            <tr>
+                                <td class="profile_title">인원</td>
+                                <td class="profile_content">2</td>
+                            </tr>
+                        </table>
+
+                        <hr>
+
+                        <table style="color:black; margin-left:10px;">
+                            <tr>
+                                <td class="profile_title">상품명</td>
+                                <td class="profile_content">덕수궁(Deoksugung Palace)</td>
+                            </tr>
+                            <tr>
+                                <td class="profile_title">일시</td>
+                                <td class="profile_content">2022넌 12월 02일</td>
+                            </tr>
+                            <tr>
+                                <td class="profile_title">아이디</td>
+                                {% if user.level == '0'%}
+                                <td class="profile_content">{{ user.user_id }}&nbsp;&nbsp;(개발자)</td>
+                                {% elif user.level == '1' %}
+                                <td class="profile_content">{{ user.user_id }}&nbsp;&nbsp;(관리자)</td>
+                                {% else %}
+                                <td class="profile_content">{{ user.user_id }}</td>
+                                {% endif %}
+                            </tr>
+                            <tr>
+                                <td class="profile_title">이메일</td>
+                                <td class="profile_content">{{ user.email }}</td>
+                            </tr>
+                            <tr>
+                                <td class="profile_title">이름</td>
+                                <td class="profile_content">{{ user.name }}</td>
+                            </tr>
+                            <tr>
+                                <td class="profile_title">연락처</td>
+                                <td class="profile_content">0{{ user.hp }}</td>
+                            </tr>
+                            <tr>
+                                <td class="profile_title">인원</td>
+                                <td class="profile_content">1</td>
+                            </tr>
+                        </table>
+
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

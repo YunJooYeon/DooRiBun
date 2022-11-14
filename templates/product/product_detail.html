@@ -25,7 +25,7 @@
 
                                 <br>
                                 <h3 class="card-title h3">&nbsp;{{ object.name }}</h3>
-                                <h6 class="card-title h6">&nbsp;&nbsp;체험일시 : {{ object.date|date:'Y년 m월 d일' }}</h6>
+                                <h6 class="card-title h6">&nbsp;&nbsp;일시 : {{ object.date|date:'Y년 m월 d일' }}</h6>
                                 <h6 class="card-title h6">&nbsp;&nbsp;장소 : {{ object.place }}</h6>
                                 <h6 class="card-title h6">&nbsp;&nbsp;가격 : {{ object.price }}&nbsp;원/KW</h6>
 
@@ -42,8 +42,8 @@
 
 
                              <div class="col-12 text-center">
-                                  <a class="btn btn-red"  style="opacity: 90%; font-size: 16px; margin-top: 10px;" href="{% url 'product:agreement' %}">예매하기</a>
-                                 <a class="btn btn-red"  style="opacity: 90%; font-size: 16px; margin-top: 10px;" href="{% url 'product:agreement' %}">Buy Tickets</a>
+                                  <a class="btn btn-red btn-md btn-block"  style="opacity: 90%; font-size: 16px; margin-top: 10px;" href="{% url 'product:agreement' %}">예매하기 : Buy Tickets</a>
+{#                                 <a class="btn btn-red"  style="opacity: 90%; font-size: 16px; margin-top: 10px;" href="{% url 'product:agreement' %}">Buy Tickets</a>#}
                             </div>
                         </form>
                     </div>
