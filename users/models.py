@@ -7,7 +7,7 @@ from django.utils import timezone
 
 class UserManager(BaseUserManager):
 
-    def create_user(self, user_id, password, email, hp, name, grade, auth, **extra_fields):
+    def create_user(self, user_id, password, email, hp=None, name=None, auth=None, **extra_fields):
         if not user_id:
             raise ValueError('user_id Required!')
 
@@ -16,7 +16,6 @@ class UserManager(BaseUserManager):
             email = email,
             hp = hp,
             name = name,
-            grade = grade,
             auth = auth,
             **extra_fields
         )
