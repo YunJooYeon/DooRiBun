@@ -7,6 +7,24 @@ from django.utils import timezone
 
 class UserManager(BaseUserManager):
 
+    # def create_user(self, user_id, password, email, hp, name, grade, auth, **extra_fields):
+    #     if not user_id:
+    #         raise ValueError('user_id Required!')
+    #
+    #     user = self.model(
+    #         user_id = user_id,
+    #         email = email,
+    #         hp = hp,
+    #         name = name,
+    #         grade = grade,
+    #         auth = auth,
+    #         **extra_fields
+    #     )
+    #
+    #     user.set_password(password)
+    #     user.save(using=self._db)
+    #     return user
+
     def create_superuser(self, user_id, password, email=None, hp=None, name=None, auth=None):
         user = self.create_user(user_id, password, email, hp, name, auth)
 
