@@ -1,0 +1,49 @@
+{% extends "users/main_base.html" %}
+{% load static %}
+
+{% block mobileView %}
+    <meta name="viewport" content="width=800, user-scalable=yes">
+{% endblock %}
+
+{% block header %}
+    <link rel="stylesheet" href="{% static 'css/index/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index/banner.css' %}">
+{% endblock %}
+
+{% block contents %}
+    <div class="container" style="margin-top: 40px;">
+        <input type="radio" name="radioBanner" id="select1" class="label_btn1" checked="">
+        <input type="radio" name="radioBanner" id="select2" class="label_btn2">
+        <input type="radio" name="radioBanner" id="select3" class="label_btn3">
+        <p class="select">
+            <label for="select1" class="label_btn1"></label>
+            <label for="select2" class="label_btn2"></label>
+            <label for="select3" class="label_btn3"></label>
+        </p>
+        <ul class="banner_mask">
+            <li>
+                <a href="http://127.0.0.1:8000/product/clothes/">
+                    <img src="{% static 'img/banner/banner1.jpg' %}" alt="첫번째 배너이미지">
+                </a>
+            </li>
+
+            <li>
+                <a href="http://127.0.0.1:8000/product/food/">
+                    <img src="{% static 'img/banner/banner2.jpg' %}" alt="두번째 배너이미지">
+                </a>
+            </li>
+
+            <li>
+                <a href="http://127.0.0.1:8000/product/historical_site/">
+                    <img src="{% static 'img/banner/banner3.jpg' %}" alt="세번재 배너이미지">
+                </a>
+            </li>
+        </ul>
+    </div>
+
+
+    <script src="{% static 'js/index/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/index/aos.js' %}"></script>
+    <script src="{% static 'js/index/jquery.sticky.js' %}"></script>
+    <script src="{% static 'js/index/customCarousel.js' %}"></script>
+{% endblock %}
