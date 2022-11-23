@@ -15,4 +15,3 @@ def map_view(request):
 #     product = Product.objects.get(id = id)
 #     product = get_object_or_404(Product, id=id)
 #     return render(request, 'product/product_detail.html', {'product' : product})
-

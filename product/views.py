@@ -46,23 +46,26 @@ def CategoryView(request, category_name):
         request,
         "product/product_list.html",
         {
-            "category_name" : category_name,
-            "category_list" : category_list,
+            "category_name": category_name,
+            "category_list": category_list,
         }
     )
+
 
 class ProductDetailView(DetailView):
     model = Product
 
+
 def detail(request, id):
-    product = Product.objects.get(id = id)
+    product = Product.objects.get(id=id)
     product = get_object_or_404(Product, id=id)
-    return render(request, 'product/product_detail.html', {'product' : product})
+    return render(request, 'product/product_detail.html', {'product': product})
+
 
 def order(request, id):
-    product = Product.objects.get(id = id)
+    product = Product.objects.get(id=id)
     product = get_object_or_404(Product, id=id)
-    return render(request, 'product/product_order.html', {'product' : product})
+    return render(request, 'product/product_order.html', {'product': product})
 
 
 # 회원가입 약관동의

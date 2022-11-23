@@ -8,7 +8,6 @@ from django.utils import timezone
 class UserManager(BaseUserManager):
 
     def create_superuser(self, user_id, password, email=None, hp=None, name=None, auth=None):
-
         user = self.create_user(user_id, password, email, hp, name, auth)
 
         user.is_superuser = True
@@ -25,7 +24,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     user_id = models.CharField(max_length=17, verbose_name="아이디", unique=True)
     password = models.CharField(max_length=256, verbose_name="비밀번호")
-    email = models.EmailField(max_length=128, verbose_name="이메일",null=True, unique=True)
+    email = models.EmailField(max_length=128, verbose_name="이메일", null=True, unique=True)
     hp = models.IntegerField(verbose_name="핸드폰번호", null=True, unique=True)
     name = models.CharField(max_length=8, verbose_name="이름", null=True)
     grade = models.CharField(choices=GRADE_CHOICES, max_length=18, verbose_name="국적", null=True)
@@ -40,7 +39,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     USERNAME_FIELD = 'user_id'
     REQUIRED_FIELDS = ['email']
-    
+
     def __str__(self):
         return self.user_id
 

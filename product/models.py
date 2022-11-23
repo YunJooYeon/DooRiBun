@@ -4,6 +4,7 @@ from yun import settings
 from .choice import *
 from django.utils import timezone
 
+
 class Category(models.Model):
     category = models.CharField(max_length=100, verbose_name="카테고리")
 
@@ -18,7 +19,8 @@ class Category(models.Model):
 
 class Product(models.Model):
     name = models.CharField(verbose_name="이름", max_length=255)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name="카테고리", related_name='product_category')
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name="카테고리",
+                                 related_name='product_category')
     image = models.ImageField(verbose_name="사진", upload_to='static/img/product', blank=False)
     date = models.DateTimeField(verbose_name='일시', default=timezone.now)
     place = models.TextField(verbose_name='장소', default='')

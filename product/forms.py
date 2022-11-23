@@ -1,14 +1,15 @@
 from django import forms
 from django.contrib.auth.hashers import check_password
 from .models import Order
-from django.contrib.auth.forms import AuthenticationForm, UserChangeForm, SetPasswordForm, UserCreationForm, PasswordChangeForm
+from django.contrib.auth.forms import AuthenticationForm, UserChangeForm, SetPasswordForm, UserCreationForm, \
+    PasswordChangeForm
 from django.contrib.auth import get_user_model
 from .choice import *
 
 
 def hp_validator(value):
-	if len(str(value)) != 10:
-		raise forms.ValidationError('정확한 핸드폰 번호를 입력해주세요.')
+    if len(str(value)) != 10:
+        raise forms.ValidationError('정확한 핸드폰 번호를 입력해주세요.')
 
 
 # 컴공 회원가입 폼
@@ -71,7 +72,7 @@ class CsRegisterForm(UserCreationForm):
 class RegisterForm(UserCreationForm):
     grade = forms.ChoiceField(choices=COUNT_CHOICES, label='인원', widget=forms.Select(
         attrs={'class': 'form-control'}),
-    )
+                              )
 
     def __init__(self, *args, **kwargs):
         super(RegisterForm, self).__init__(*args, **kwargs)

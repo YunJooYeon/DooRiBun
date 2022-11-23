@@ -1,21 +1,22 @@
 from django import forms
 from django.contrib.auth.hashers import check_password
 from .models import User
-from django.contrib.auth.forms import AuthenticationForm, UserChangeForm, SetPasswordForm, UserCreationForm, PasswordChangeForm
+from django.contrib.auth.forms import AuthenticationForm, UserChangeForm, SetPasswordForm, UserCreationForm, \
+    PasswordChangeForm
 from django.contrib.auth import get_user_model
 from .choice import *
 
 
 def hp_validator(value):
-	if len(str(value)) != 10:
-		raise forms.ValidationError('정확한 핸드폰 번호를 입력해주세요.')
+    if len(str(value)) != 10:
+        raise forms.ValidationError('정확한 핸드폰 번호를 입력해주세요.')
 
 
 # 로그인 폼
 class LoginForm(forms.Form):
     user_id = forms.CharField(
         widget=forms.TextInput(
-        attrs={'class': 'form-control',}), 
+            attrs={'class': 'form-control', }),
         error_messages={
             'required': '아이디을 입력해주세요.'
         },
@@ -25,7 +26,7 @@ class LoginForm(forms.Form):
 
     password = forms.CharField(
         widget=forms.PasswordInput(
-        attrs={'class': 'form-control',}), 
+            attrs={'class': 'form-control', }),
         error_messages={
             'required': '비밀번호를 입력해주세요.'
         },
@@ -39,11 +40,11 @@ class LoginForm(forms.Form):
 
         if user_id and password:
             try:
-               user = User.objects.get(user_id=user_id)
+                user = User.objects.get(user_id=user_id)
             except User.DoesNotExist:
                 self.add_error('user_id', '아이디가 존재하지 않습니다.')
                 return
-            
+
             if not check_password(password, user.password):
                 self.add_error('password', '비밀번호가 틀렸습니다.')
 
@@ -55,15 +56,15 @@ class CustomUserChangeForm(UserChangeForm):
     #     attrs={'class': 'form-control',}), 
     # )        
     hp = forms.IntegerField(label='연락처', widget=forms.NumberInput(
-        attrs={'class': 'form-control', 'maxlength':'11', 'oninput':"maxLengthCheck(this)",}), 
-    )    
+        attrs={'class': 'form-control', 'maxlength': '11', 'oninput': "maxLengthCheck(this)", }),
+                            )
     name = forms.CharField(label='이름', widget=forms.TextInput(
-        attrs={'class': 'form-control', 'maxlength':'8',}), 
-    )
+        attrs={'class': 'form-control', 'maxlength': '8', }),
+                           )
     grade = forms.ChoiceField(choices=GRADE_CHOICES, label='국적', widget=forms.Select(
-        attrs={'class': 'form-control',}), 
-    )
-       
+        attrs={'class': 'form-control', }),
+                              )
+
     class Meta:
         model = get_user_model()
         fields = ['hp', 'name', 'grade']
@@ -71,17 +72,16 @@ class CustomUserChangeForm(UserChangeForm):
 
 # 컴공회원정보 수정 폼
 class CustomCsUserChangeForm(UserChangeForm):
-    password = None        
+    password = None
     hp = forms.IntegerField(label='연락처', widget=forms.NumberInput(
-        attrs={'class': 'form-control', 'maxlength':'11', 'oninput':"maxLengthCheck(this)",}), 
-    )        
+        attrs={'class': 'form-control', 'maxlength': '11', 'oninput': "maxLengthCheck(this)", }),
+                            )
     name = forms.CharField(label='이름', widget=forms.TextInput(
-        attrs={'class': 'form-control', 'maxlength':'8',}), 
-    )   
+        attrs={'class': 'form-control', 'maxlength': '8', }),
+                           )
     grade = forms.ChoiceField(choices=GRADE_CHOICES, label='국적', widget=forms.Select(
-        attrs={'class': 'form-control',}), 
-    )
-
+        attrs={'class': 'form-control', }),
+                              )
 
     class Meta:
         model = get_user_model()
@@ -91,8 +91,9 @@ class CustomCsUserChangeForm(UserChangeForm):
 # 회원탈퇴 비밀번호확인 폼
 class CheckPasswordForm(forms.Form):
     password = forms.CharField(label='비밀번호', widget=forms.PasswordInput(
-        attrs={'class': 'form-control',}), 
-    )
+        attrs={'class': 'form-control', }),
+                               )
+
     def __init__(self, user, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.user = user
@@ -101,7 +102,7 @@ class CheckPasswordForm(forms.Form):
         cleaned_data = super().clean()
         password = cleaned_data.get('password')
         confirm_password = self.user.password
-        
+
         if password:
             if not check_password(password, confirm_password):
                 self.add_error('password', '비밀번호가 일치하지 않습니다.')
@@ -131,7 +132,7 @@ class RecoveryIdForm(forms.Form):
         self.fields['email'].widget.attrs.update({
             # 'placeholder': '이메일을 입력해주세요',
             'class': 'form-control',
-            'id': 'form_email' 
+            'id': 'form_email'
         })
 
 
@@ -146,6 +147,7 @@ class RecoveryPwForm(forms.Form):
     email = forms.EmailField(
         widget=forms.EmailInput,
     )
+
     class Meta:
         fields = ['user_id', 'name', 'email']
 
@@ -268,7 +270,7 @@ class CsRegisterForm(UserCreationForm):
 class RegisterForm(UserCreationForm):
     grade = forms.ChoiceField(choices=GRADE_CHOICES, label='국적', widget=forms.Select(
         attrs={'class': 'form-control'}),
-    )
+                              )
 
     def __init__(self, *args, **kwargs):
         super(RegisterForm, self).__init__(*args, **kwargs)

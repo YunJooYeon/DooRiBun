@@ -15,7 +15,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
@@ -26,8 +25,8 @@ SECRET_KEY = 'j%rg7n*#l_ys0g)h-jb11bh0)3d9a&$5eie1=-eg_p&=@(@2ya'
 DEBUG = True
 ALLOWED_HOSTS = []
 
-#DEBUG = False
-#ALLOWED_HOSTS = ['*']
+# DEBUG = False
+# ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -75,7 +74,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'yun.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
@@ -85,7 +83,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -105,8 +102,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
-
 LANGUAGE_CODE = 'ko'
 
 TIME_ZONE = 'Asia/Seoul'
@@ -117,12 +112,11 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [ BASE_DIR / 'static' ]
+STATICFILES_DIRS = [BASE_DIR / 'static']
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
@@ -134,11 +128,10 @@ STATICFILES_FINDERS = (
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
-LOGIN_URL = '/users/login/'          # 로그인 URL
+LOGIN_URL = '/users/login/'  # 로그인 URL
 LOGIN_REDIRECT_URL = '/users/main/'  # 로그인 후 URL
-LOGOUT_REDIRECT_URL = '/'            # 로그아웃 후 URL
-AUTH_USER_MODEL = "users.User"       # 커스텀 인증 모델
+LOGOUT_REDIRECT_URL = '/'  # 로그아웃 후 URL
+AUTH_USER_MODEL = "users.User"  # 커스텀 인증 모델
 
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # EMAIL_HOST = 'smtp.naver.com'
@@ -151,13 +144,10 @@ AUTH_USER_MODEL = "users.User"       # 커스텀 인증 모델
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_HOST_USER = 'hywu.dooribun@gmail.com'
-EMAIL_HOST_PASSWORD ='fdzfapulqijojhoi' # 2단계 보안 인증 비밀번호=(앱 비밀번호)
-EMAIL_PORT = 587        # 권장 gmail smtp포트
-EMAIL_USE_TLS = True    #tls 보안
+EMAIL_HOST_PASSWORD = 'fdzfapulqijojhoi'  # 2단계 보안 인증 비밀번호=(앱 비밀번호)
+EMAIL_PORT = 587  # 권장 gmail smtp포트
+EMAIL_USE_TLS = True  # tls 보안
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
-
-# MEDIA_ROOT = [BASE_DIR, 'media']
-# MEDIA_URL = '/media/'
 
