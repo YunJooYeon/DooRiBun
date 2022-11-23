@@ -22,11 +22,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'j%rg7n*#l_ys0g)h-jb11bh0)3d9a&$5eie1=-eg_p&=@(@2ya'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-ALLOWED_HOSTS = []
+# DEBUG = True
+# ALLOWED_HOSTS = []
 
-# DEBUG = False
-# ALLOWED_HOSTS = ['*']
+# 배포용
+DEBUG = False
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -133,13 +134,6 @@ LOGIN_REDIRECT_URL = '/users/main/'  # 로그인 후 URL
 LOGOUT_REDIRECT_URL = '/'  # 로그아웃 후 URL
 AUTH_USER_MODEL = "users.User"  # 커스텀 인증 모델
 
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'smtp.naver.com'
-# EMAIL_HOST_USER = 'maccor1309@naver.com'
-# EMAIL_HOST_PASSWORD = 'joojoo03'
-# EMAIL_USE_TLS = True
-# EMAIL_PORT = 587
-# DEFAULT_FROM_MAIL = 'maccor1309@naver.com'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = "smtp.gmail.com"
