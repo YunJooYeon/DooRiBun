@@ -22,19 +22,19 @@
         </p>
         <ul class="banner_mask">
             <li>
-                <a href="http://127.0.0.1:8000/product/clothes/">
+                <a href="{% url 'product:category' category_name='clothes' %}">
                     <img src="{% static 'img/banner/banner1.JPG' %}" alt="첫번째 배너이미지">
                 </a>
             </li>
 
             <li>
-                <a href="http://127.0.0.1:8000/product/food/">
+                <a href="{% url 'product:category' category_name='food' %}">
                     <img src="{% static 'img/banner/banner2.JPG' %}" alt="두번째 배너이미지">
                 </a>
             </li>
 
             <li>
-                <a href="http://127.0.0.1:8000/product/historical_site/">
+                <a href="{% url 'product:category' category_name='historical_site' %}">
                     <img src="{% static 'img/banner/banner3.JPG' %}" alt="세번재 배너이미지">
                 </a>
             </li>
