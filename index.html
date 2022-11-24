@@ -1,4 +1,4 @@
-{% extends "users/main_base.HTML" %}
+{% extends "users/main_base.html" %}
 {% load static %}
 
 {% block mobileView %}
@@ -6,8 +6,8 @@
 {% endblock %}
 
 {% block header %}
-    <link rel="stylesheet" href="{% static 'css/index/owl.carousel.min.CSS' %}">
-    <link rel="stylesheet" href="{% static 'css/index/banner.CSS' %}">
+    <link rel="stylesheet" href="static/css/index/owl.carousel.min.css">
+    <link rel="stylesheet" href="static/css/index/banner.css">
 {% endblock %}
 
 {% block contents %}
@@ -23,27 +23,27 @@
         <ul class="banner_mask">
             <li>
                 <a href="{% url 'product:category' category_name='clothes' %}">
-                    <img src="{% static 'img/banner/banner1.JPG' %}" alt="첫번째 배너이미지">
+                    <img src="{% static 'img/banner/banner1.jpg' %}" alt="첫번째 배너이미지">
                 </a>
             </li>
 
             <li>
                 <a href="{% url 'product:category' category_name='food' %}">
-                    <img src="{% static 'img/banner/banner2.JPG' %}" alt="두번째 배너이미지">
+                    <img src="{% static 'img/banner/banner2.jpg' %}" alt="두번째 배너이미지">
                 </a>
             </li>
 
             <li>
                 <a href="{% url 'product:category' category_name='historical_site' %}">
-                    <img src="{% static 'img/banner/banner3.JPG' %}" alt="세번재 배너이미지">
+                    <img src="{% static 'img/banner/banner3.jpg' %}" alt="세번재 배너이미지">
                 </a>
             </li>
         </ul>
     </div>
 
 
-    <script src="{% static 'js/index/owl.carousel.min.JS' %}"></script>
-    <script src="{% static 'js/index/aos.JS' %}"></script>
-    <script src="{% static 'js/index/jquery.sticky.JS' %}"></script>
-    <script src="{% static 'js/index/customCarousel.JS' %}"></script>
+    <script src="{% static 'js/index/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/index/aos.js' %}"></script>
+    <script src="{% static 'js/index/jquery.sticky.js' %}"></script>
+    <script src="{% static 'js/index/customCarousel.js' %}"></script>
 {% endblock %}
