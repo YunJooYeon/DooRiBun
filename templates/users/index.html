@@ -15,27 +15,34 @@
         <input type="radio" name="radioBanner" id="select1" class="label_btn1" checked="">
         <input type="radio" name="radioBanner" id="select2" class="label_btn2">
         <input type="radio" name="radioBanner" id="select3" class="label_btn3">
+{#        <input type="radio" name="radioBanner" id="select4" class="label_btn4">#}
         <p class="select">
             <label for="select1" class="label_btn1"></label>
             <label for="select2" class="label_btn2"></label>
             <label for="select3" class="label_btn3"></label>
+{#            <label for="select4" class="label_btn4"></label>#}
         </p>
         <ul class="banner_mask">
+{#            <li>#}
+{#                <a href="{% url 'product:category' category_name='clothes' %}">#}
+{#                    <img src="{% static 'img/banner/banner1.png' %}" alt="첫번째 배너이미지">#}
+{#                </a>#}
+{#            </li>#}
             <li>
                 <a href="{% url 'product:category' category_name='clothes' %}">
-                    <img src="{% static 'img/banner/banner1.jpg' %}" alt="첫번째 배너이미지">
+                    <img src="{% static 'img/banner/banner1.jpg' %}" alt="두번째 배너이미지">
                 </a>
             </li>
 
             <li>
                 <a href="{% url 'product:category' category_name='food' %}">
-                    <img src="{% static 'img/banner/banner2.jpg' %}" alt="두번째 배너이미지">
+                    <img src="{% static 'img/banner/banner2.jpg' %}" alt="세번째 배너이미지">
                 </a>
             </li>
 
             <li>
                 <a href="{% url 'product:category' category_name='historical_site' %}">
-                    <img src="{% static 'img/banner/banner3.jpg' %}" alt="세번재 배너이미지">
+                    <img src="{% static 'img/banner/banner3.jpg' %}" alt="네번재 배너이미지">
                 </a>
             </li>
         </ul>

@@ -23,12 +23,12 @@ SECRET_KEY = 'j%rg7n*#l_ys0g)h-jb11bh0)3d9a&$5eie1=-eg_p&=@(@2ya'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-# DEBUG = True
-# ALLOWED_HOSTS = []
+DEBUG = True
+ALLOWED_HOSTS = []
 
 # 배포용
-DEBUG = False
-ALLOWED_HOSTS = ['*']
+# DEBUG = False
+# ALLOWED_HOSTS = ['*']
 
 
 # Application definition
