@@ -139,7 +139,7 @@ AUTH_USER_MODEL = "users.User"  # 커스텀 인증 모델
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_HOST_USER = 'hywu.dooribun@gmail.com'
-EMAIL_HOST_PASSWORD = 'fdzfapulqijojhoi'  # 2단계 보안 인증 비밀번호=(앱 비밀번호)
+EMAIL_HOST_PASSWORD = '졸업작품 최종 보고서 부록 USB 확인' # 2단계 보안 인증 비밀번호=(앱 비밀번호)
 EMAIL_PORT = 587  # 권장 gmail smtp포트
 EMAIL_USE_TLS = True  # tls 보안
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER

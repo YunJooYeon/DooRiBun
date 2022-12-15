@@ -70,7 +70,7 @@ class CustomUserChangeForm(UserChangeForm):
         fields = ['hp', 'name', 'grade']
 
 
-# 컴공회원정보 수정 폼
+# 회원정보 수정 폼
 class CustomCsUserChangeForm(UserChangeForm):
     password = None
     hp = forms.IntegerField(label='연락처', widget=forms.NumberInput(
@@ -209,7 +209,7 @@ class CustomPasswordChangeForm(PasswordChangeForm):
         })
 
 
-# 컴공 회원가입 폼
+# 회원가입 폼
 class CsRegisterForm(UserCreationForm):
     def __init__(self, *args, **kwargs):
         super(CsRegisterForm, self).__init__(*args, **kwargs)

@@ -12,7 +12,7 @@ def hp_validator(value):
         raise forms.ValidationError('정확한 핸드폰 번호를 입력해주세요.')
 
 
-# 컴공 회원가입 폼
+# 회원가입 폼
 class CsRegisterForm(UserCreationForm):
     def __init__(self, *args, **kwargs):
         super(CsRegisterForm, self).__init__(*args, **kwargs)

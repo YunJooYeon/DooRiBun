@@ -113,9 +113,8 @@ class AgreementView(View):
             messages.info(request, "약관에 모두 동의해주세요.")
             return render(request, 'users/agreement.html')
 
-        # 회원가입 인증메일 발송 안내 창
 
-
+# 회원가입 인증메일 발송 안내 창
 def register_success(request):
     if not request.session.get('register_auth', False):
         raise PermissionDenied
@@ -224,7 +223,7 @@ def profile_delete_view(request):
         if password_form.is_valid():
             request.user.delete()
             logout(request)
-            messages.success(request, "회원탈퇴가 완료되었습니다.")
+            messages.success(request, "회원 탈퇴가 완료되었습니다.")
             return redirect('/')
     else:
         password_form = CheckPasswordForm(request.user)
